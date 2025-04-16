@@ -1,42 +1,39 @@
-class Horse implements Animal {
-    private int legs;
-    private String sound;
-    private String food;
+public class Horse implements Animal {
+    private int legs = 4;
+    private String sound = "Neigh!";
+    private String food = "Oats";
     private String color;
-    private String name;
 
-    public Horse() {
-        this.legs = 4;
-        this.sound = "Neigh";
-        this.food = "Hay";
-        this.color = "Brown";
-        this.name = "Horse";
+    public Horse(String color) {
+        this.color = color;
+        System.out.println("Creating a Horse prototype.");
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     @Override
-    public Animal clone() {
-        Horse horse = new Horse();
-        horse.legs = this.legs;
-        horse.sound = this.sound;
-        horse.food = this.food;
-        horse.color = this.color;
-        horse.name = this.name;
-        return horse;
+    public Horse clone() {
+        try {
+            return (Horse) super.clone();
+        } catch (CloneNotSupportedException e) {
+            System.out.println("Cloning not supported!");
+            return null;
+        }
     }
 
     @Override
-    public String makeSound() {
-        return sound;
+    public void makeSound() {
+        System.out.println("A Horse says: " + sound);
     }
 
     @Override
     public String getType() {
-        return name;
+        return "Horse";
     }
-
-    public int getLegs() { return legs; }
-    public String getFood() { return food; }
-    public String getColor() { return color; }
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; } // Added setter
 }

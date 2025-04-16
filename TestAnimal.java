@@ -1,23 +1,22 @@
-public class TestAnimal {
+public class TestAnimal{
     public static void main(String[] args) {
         AnimalRegistry registry = new AnimalRegistry();
 
-        // Test Sheep
-        Animal sheep = registry.createSheep("Dolly");
-        System.out.println("Animal: " + sheep.getType() + ", Name: " + ((Sheep) sheep).getName() + 
-                          ", Sound: " + sheep.makeSound() + ", Legs: " + ((Sheep) sheep).getLegs() + 
-                          ", Food: " + ((Sheep) sheep).getFood());
+        Animal fluffy = registry.createSheep("Fluffy");
+        fluffy.makeSound();
+        System.out.println("Type: " + fluffy.getType() + ", Name: " + ((Sheep) fluffy).getName());
 
-        // Test Cow
-        Animal cow = registry.createCow("Bessie");
-        System.out.println("Animal: " + cow.getType() + ", Name: " + ((Cow) cow).getName() + 
-                          ", Sound: " + cow.makeSound() + ", Legs: " + ((Cow) cow).getLegs() + 
-                          ", Food: " + ((Cow) cow).getFood());
+        Animal bessy = registry.createCow();
+        bessy.makeSound();
+        System.out.println("Type: " + bessy.getType());
 
-        // Test Horse
-        Animal horse = registry.createHorse("Spirit");
-        System.out.println("Animal: " + horse.getType() + ", Name: " + ((Horse) horse).getName() + 
-                          ", Sound: " + horse.makeSound() + ", Legs: " + ((Horse) horse).getLegs() + 
-                          ", Food: " + ((Horse) horse).getFood() + ", Color: " + ((Horse) horse).getColor());
+        Animal speedy = registry.createHorse("Black");
+        speedy.makeSound();
+        System.out.println("Type: " + speedy.getType() + ", Color: " + ((Horse) speedy).getColor());
+
+        Animal anotherFluffy = registry.createSheep("Another Fluffy");
+        anotherFluffy.makeSound();
     }
 }
+
+

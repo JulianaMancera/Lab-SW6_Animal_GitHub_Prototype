@@ -1,38 +1,39 @@
-class Sheep implements Animal {
-    private int legs;
-    private String sound;
-    private String food;
+public class Sheep implements Animal {
+    private int legs = 4;
+    private String sound = "Baa!";
+    private String food = "Grass";
     private String name;
 
-    public Sheep() {
-        this.legs = 4;
-        this.sound = "Baa";
-        this.food = "Grass";
-        this.name = "Sheep";
+    public Sheep(String name) {
+        this.name = name;
+        System.out.println("Creating a Sheep prototype.");
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
-    public Animal clone() {
-        Sheep sheep = new Sheep();
-        sheep.legs = this.legs;
-        sheep.sound = this.sound;
-        sheep.food = this.food;
-        sheep.name = this.name;
-        return sheep;
+    public Sheep clone() {
+        try {
+            return (Sheep) super.clone();
+        } catch (CloneNotSupportedException e) {
+            System.out.println("Cloning not supported!");
+            return null;
+        }
     }
 
     @Override
-    public String makeSound() {
-        return sound;
+    public void makeSound() {
+        System.out.println(name + " says: " + sound);
     }
 
     @Override
     public String getType() {
-        return name;
+        return "Sheep";
     }
-
-    public int getLegs() { return legs; }
-    public String getFood() { return food; }
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; } // Added setter
 }
